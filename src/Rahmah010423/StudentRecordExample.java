@@ -11,17 +11,17 @@ package Rahmah010423;
  */
 public class StudentRecordExample {
      public static void main(String[] args){
-        StudentRecord sasa = new StudentRecord();
+        StudentRecord nini = new StudentRecord();
         StudentRecord rara = new StudentRecord();
         StudentRecord wati = new StudentRecord("Wati");
         
         //isi data
-        sasa.setName ("Sasa");
-        sasa.setAddress("Padang");
-        sasa.setAge(18);
-        sasa.setMathGrade(90);
-        sasa.setEnglishGrade(93);
-        sasa.setScienceGrade(91);
+        nini.setName ("nini");
+        nini.setAddress("Padang");
+        nini.setAge(18);
+        nini.setMathGrade(90);
+        nini.setEnglishGrade(93);
+        nini.setScienceGrade(91);
         
         rara.setName ("Rara");
         rara.setAddress("Bukittinggi");
@@ -32,11 +32,11 @@ public class StudentRecordExample {
         
         //menampilkan data sasa
         System.out.println("Data Objek Sasa");
-        System.out.println("Nama        :" + sasa.getName());
-        System.out.println("Alamat      :" + sasa.getAddress());
-        System.out.println("Umur        :" + sasa.getAge());
-        System.out.println("Rata Rata   :" + sasa.getAverage());    //menampilkan rata rata
-        System.out.println("Nilai Huruf :" + sasa.nilaiHuruf());    //menampilkan nilai huruf
+        System.out.println("Nama        :" + nini.getName());
+        System.out.println("Alamat      :" + nini.getAddress());
+        System.out.println("Umur        :" + nini.getAge());
+        System.out.println("Rata Rata   :" + nini.getAverage());    //menampilkan rata rata
+        System.out.println("Nilai Huruf :" + nini.nilaiHuruf());    //menampilkan nilai huruf
         
         
         //memanggil method print
@@ -46,15 +46,22 @@ public class StudentRecordExample {
         
         //menampilkan data rara
         System.out.println("Data Objek Rara");
-        System.out.println("Nama        :" + sasa.getName());
-        System.out.println("Alamat      :" + sasa.getAddress());
-        System.out.println("Umur        :" + sasa.getAge());
-        System.out.println("Rata Rata   :" + sasa.getAverage());    //menampilkan rata rata
-        System.out.println("Nilai Huruf :" + sasa.nilaiHuruf());    //menampilkan nilai huruf
+        System.out.println("Nama        :" + rara.getName());
+        System.out.println("Alamat      :" + rara.getAddress());
+        System.out.println("Umur        :" + rara.getAge());
+        System.out.println("Rata Rata   :" + rara.getAverage());    //menampilkan rata rata
+        System.out.println("Nilai Huruf :" + rara.nilaiHuruf());    //menampilkan nilai huruf
         
         
         System.out.println("\nData Objek Wati");
         wati.print("");
+        
+        System.out.println("Data Objek Rara");
+        System.out.println("Nama        :" + wati.getName());
+        System.out.println("Alamat      :" + wati.getAddress());
+        System.out.println("Umur        :" + wati.getAge());
+        System.out.println("Rata Rata   :" + wati.getAverage());    //menampilkan rata rata
+        System.out.println("Nilai Huruf :" + wati.nilaiHuruf());    //menampilkan nilai huruf
         
         //menampilkan jumlah mahsiswa
         System.out.println("Count="+ StudentRecord.getStudentCount());
