@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Rahmah.controller;
-import Rahmah.view.formAnggota;
+import Rahmah.view.FormAnggota;
 import Rahmah.Model.*;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -16,9 +16,13 @@ public class AnggotaController {
     private AnggotaDao anggotaDao;
     private Anggota anggota;
     
-    public AnggotaController(formAnggota formAnggota){
+    public AnggotaController(FormAnggota formAnggota){
         this.formAnggota = formAnggota;
         anggotaDao = new AnggotaDaoImpl();
+    }
+
+    public AnggotaController() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void bersihForm(){
