@@ -9,10 +9,10 @@ import java.util.List;
  *
  * @author LABP1KOMP
  */
-public class AnggotaDao {
+public interface AnggotaDao {
     void save(Anggota anggota);
-    void update (int index, Anggota anggota);
-    void delete (int index);
+    void update(int index, Anggota anggota);
+    void delete(int index);
     Anggota getAnggota(int index);
     List<Anggota> getAll();
 }

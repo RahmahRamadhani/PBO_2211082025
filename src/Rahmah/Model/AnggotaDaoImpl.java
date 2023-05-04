@@ -18,9 +18,13 @@ public class AnggotaDaoImpl implements AnggotaDao{
         data.add (new Anggota ("1112","Deni","Padang Panjang"));
         data.add (new Anggota ("1113","Ani","Padang"));
     }
+
+    /**
+     *
+     */
     
-    public void sav(Anggota anggota){
-        data.add(anggota):
+    public void save(Anggota anggota){
+        data.add(anggota);
     }
     
     public void update(int index, Anggota anggota){
@@ -35,7 +39,7 @@ public class AnggotaDaoImpl implements AnggotaDao{
         return data.get(index);
     }
     
-    public List<anggota> getAll(){
+     public List<Anggota> getAll(){
         return data;
     }
 }

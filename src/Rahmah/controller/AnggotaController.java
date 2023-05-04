@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
  * @author LABP1KOMP
  */
 public class AnggotaController {
-    private FromAnggota formAnggota;
+    private FormAnggota formAnggota;
     private AnggotaDao anggotaDao;
     private Anggota anggota;
     
@@ -37,14 +37,14 @@ public class AnggotaController {
         anggota.setNama(formAnggota.getTxtNama().getText());
         anggota.setAlamat(formAnggota.getTxtAlamat().getText());
         anggotaDao.save(anggota);
-        javax.swing.JOptionPane.showMessageDialog(formAnggota, "Entri Ok");
-        
+        javax.swing.JOptionPane.showMessageDialog(formAnggota,
+                "Entri Ok");
     }
     
     public void getAnggota(){
         int index = formAnggota.getTblAnggota().getSelectedRow();
-        anggota = AnggotaDao.getAnggota(index);
-        if (anggota != null){
+        anggota = anggotaDao.getAnggota(index);
+        if(anggota != null){
             formAnggota.getTxtNobp().setText(anggota.getNobp());
             formAnggota.getTxtNama().setText(anggota.getNama());
             formAnggota.getTxtAlamat().setText(anggota.getAlamat());
@@ -56,27 +56,28 @@ public class AnggotaController {
         anggota.setNobp(formAnggota.getTxtNobp().getText());
         anggota.setNama(formAnggota.getTxtNama().getText());
         anggota.setAlamat(formAnggota.getTxtAlamat().getText());
-        anggotaDao.update(anggota);
-        javax.swing.JOptionPane.showMessageDialog(formAnggota, "Update Ok");
+        anggotaDao.update(index, anggota);
+        javax.swing.JOptionPane.showMessageDialog(formAnggota,
+                "Update Ok");
     }
     
     public void deleteAnggota(){
         int index = formAnggota.getTblAnggota().getSelectedRow();
-        anggotaDao.delete(anggota);
+        anggotaDao.delete(index);
         javax.swing.JOptionPane.showMessageDialog(formAnggota, "Delete");
     }
     
     public void tampilData(){
-        DefaultTableModel tabelmodel =
-                (DefaultTableModel)formAnggota.getTblAnggota().getModel();
+        DefaultTableModel tabelModel =
+                (DefaultTableModel) formAnggota.getTblAnggota().getModel();
         tabelModel.setRowCount(0);
-        java.util.List<Anggota>list = anggotaDao.getAll();
+        java.util.List<Anggota> list = anggotaDao.getAll();
         for(Anggota anggota : list){
-            object[] data = {
+            Object[] data = {
                 anggota.getNobp(),
                 anggota.getNama(),
                 anggota.getAlamat()
-            };
+        };
         tabelModel.addRow(data);
         }
     }
