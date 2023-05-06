@@ -5,7 +5,6 @@
  */
 package Rahmah060523.view;
 import Rahmah060523.controller.PeminjamanController;
-import javax.swing.JTextField;
 /**
  *
  * @author LABP1KOMP

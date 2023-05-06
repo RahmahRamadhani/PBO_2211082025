@@ -6,7 +6,7 @@
 package Rahmah060523.controller;
 import Rahmah060523.Model.Buku;
 import Rahmah060523.view.FormBuku;
-import Rahmah.model.*;
+import Rahmah060523.model.*;
 import javax.swing.table.DefaultTableModel;
 /**
  *

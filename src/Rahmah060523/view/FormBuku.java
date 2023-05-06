@@ -5,7 +5,7 @@
  */
 package Rahmah060523.view;
 import Rahmah060523.controller.BukuController;
-import javax.swing.JTextField;
+
 
 /**
  *
@@ -45,7 +45,7 @@ public class FormBuku extends javax.swing.JFrame {
     }
     
     public javax.swing.JTable getTblBuku(){
-        return TblBuku;
+        return tblBuku;
     }
 
     /**
@@ -76,7 +76,7 @@ public class FormBuku extends javax.swing.JFrame {
         btnDelete = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        TblBuku = new javax.swing.JTable();
+        tblBuku = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,7 +154,7 @@ public class FormBuku extends javax.swing.JFrame {
             }
         });
 
-        TblBuku.setModel(new javax.swing.table.DefaultTableModel(
+        tblBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -170,12 +170,12 @@ public class FormBuku extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        TblBuku.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblBuku.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TblBukuMouseClicked(evt);
+                tblBukuMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(TblBuku);
+        jScrollPane3.setViewportView(tblBuku);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -249,10 +249,10 @@ public class FormBuku extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TblBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TblBukuMouseClicked
+    private void tblBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblBukuMouseClicked
         // TODO add your handling code here:
         controller.getBuku();
-    }//GEN-LAST:event_TblBukuMouseClicked
+    }//GEN-LAST:event_tblBukuMouseClicked
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
@@ -316,7 +316,6 @@ public class FormBuku extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TblBuku;
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
@@ -331,6 +330,7 @@ public class FormBuku extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable tblBuku;
     private javax.swing.JTextField txtJudulBuku;
     private javax.swing.JTextField txtKodeBuku;
     private javax.swing.JTextField txtPenerbit;

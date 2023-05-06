@@ -7,7 +7,7 @@ package Rahmah060523.controller;
 import Rahmah060523.Model.Anggota;
 import Rahmah060523.Model.Buku;
 import Rahmah060523.Model.Peminjaman;
-import Rahmah.model.*;
+import Rahmah060523.model.*;
 import java.util.*;
 import Rahmah060523.view.FormPeminjaman;
 import javax.swing.table.DefaultTableModel;
