@@ -27,7 +27,7 @@ public class FormAnggota extends javax.swing.JFrame {
     }
     
     public javax.swing.JTextField getTxtNama(){
-        return txtNobp;
+        return txtNama;
     }
     
     public javax.swing.JTextField getTxtAlamat(){

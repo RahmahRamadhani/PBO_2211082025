@@ -33,7 +33,7 @@ public class Anggota {
     }
     
     public String getNama(){
-        return alamat;
+        return nama;
     }
     
     public void setNama(String nama){
