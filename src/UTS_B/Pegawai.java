@@ -47,4 +47,5 @@ public class Pegawai {
     public void setAlamat(String alamat){
         this.alamat = alamat;
     }
+    
 }
