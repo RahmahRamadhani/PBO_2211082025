@@ -4,10 +4,13 @@
  */
 package Rahmah.dao;
 
+import Rahmah.model.Anggota;
+
+
 /**
  *
  * @author LAB-MM
  */
-public class AnggotaDao {
-    
+public interface AnggotaDao {
+    void insert (Anggota anggota) throws Exception;
 }

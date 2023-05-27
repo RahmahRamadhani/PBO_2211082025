@@ -4,6 +4,8 @@
  */
 package Rahmah.db;
 
+import Rahmah.dao.*;
+import Rahmah.model.Anggota;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -27,10 +29,13 @@ public class DbHelper {
         return connection;
     }
     
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception{
         try{
-            DbHelper.getConnection();
-            JOptionPane.showMessageDialog(null, "Koneksi Ok");
+            connection = DbHelper.getConnection();
+            AnggotaDao dao = new AnggotaDaoImpl(connection);
+            Anggota anggota = new Anggota("A002","Nini","Batam","P");
+            dao.insert(anggota);
+            JOptionPane.showMessageDialog(null, "Entri Data Ok");
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, ex.getMessage());
         }
