@@ -6,6 +6,7 @@ package Rahmah.dao;
 
 import Rahmah.model.Anggota;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 /**
  *
@@ -70,6 +71,19 @@ public class AnggotaDaoImpl implements AnggotaDao {
 
     @Override
     public List<Anggota> getAll() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "Select *FROM anggota";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        Anggota anggota;
+        List<Anggota> list = new ArrayList<>();
+        while(rs.next()){
+            anggota = new Anggota();
+            anggota.setKodeanggota(rs.getString(1));
+            anggota.setNamaanggota(rs.getString(2));
+            anggota.setAlamat(rs.getString(3));
+            anggota.setJeniskelamin(rs.getString(4));
+            list.add(anggota);
+        }
+        return list;
     }
 }
