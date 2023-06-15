@@ -21,6 +21,10 @@ public class Anggota {
         this.jeniskelamin = jeniskelamin;
     }
 
+    public Anggota() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getKodeanggota() {
         return kodeanggota;
     }
