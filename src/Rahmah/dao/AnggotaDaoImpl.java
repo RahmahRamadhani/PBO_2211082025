@@ -30,33 +30,32 @@ public class AnggotaDaoImpl implements AnggotaDao {
         ps.close();
     }
     
-    public void update(String kode, Anggota anggota) throws Exception{
+    public void update(Anggota anggota) throws Exception{
         String sql = "UPDATE SET kodeanggota = ?"
-                +"namaanggota = ?, alamat = ?, jeniskelamin = ?"
+                +"namaanggota = ?, alamat = ?, jeniskelamin = ? "
                 +"WHERE kodeanggota = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, anggota.getKodeanggota());
         ps.setString(2, anggota.getNamaanggota());
         ps.setString(3, anggota.getAlamat());
         ps.setString(4, anggota.getJeniskelamin());
-        ps.setString(5, kode);
+        ps.setString(5, anggota.getKodeanggota());
         ps.executeUpdate();
         ps.close();
     }
     
-    public void delete(String kode) throws Exception{
+    public void delete(Anggota anggota) throws Exception{
         String sql = "DELETE FROM anggota WHERE kodeanggota = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, kode);
+        ps.setString(1, anggota.getKodeanggota());
         ps.executeUpdate();
-        ps.close();
     }
 
     @Override
-    public Anggota getAnggota(String kodeanggota) throws Exception {
+    public Anggota getAnggota(String kode) throws Exception {
         String sql = "SELECT * FROM anggota WHERE kodeanggota = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, kodeanggota);
+        ps.setString(1, kode);
         ResultSet rs = ps.executeQuery();
         Anggota anggota = null;
         if(rs.next()){
@@ -86,4 +85,5 @@ public class AnggotaDaoImpl implements AnggotaDao {
         }
         return list;
     }
+
 }

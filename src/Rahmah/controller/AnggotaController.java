@@ -78,4 +78,44 @@ public class AnggotaController {
             Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void tabelKlik(){
+        try {
+            String kodeAnggota = view.getTabelAnggota()
+                    .getValueAt(view.getTabelAnggota().getSelectedRow(), 0).toString();
+            anggota = dao.getAnggota(kodeAnggota);
+            view.getTxtKodeAnggota().setText(anggota.getKodeanggota());
+            view.getTxtNamaAnggota().setText(anggota.getNamaanggota());
+            view.getTxtAlamat().setText(anggota.getAlamat());
+            view.getCboJenisKelamin().setSelectedItem(anggota.getJeniskelamin());
+        } catch (Exception ex) {
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void update(){
+        try {
+            
+            anggota.setKodeanggota(view.getTxtKodeAnggota().getText());
+            anggota.setNamaanggota(view.getTxtNamaAnggota().getText());
+            anggota.setAlamat(view.getTxtAlamat().getText());
+            anggota.setJeniskelamin(view.getCboJenisKelamin()
+                    .getSelectedItem().toString());
+            dao.update(anggota);
+            JOptionPane.showMessageDialog(view, "Update Data Ok");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void delete() {
+        try {
+            dao.delete(anggota);
+            JOptionPane.showMessageDialog(view, "Delete Data OK");
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(view, ex.getMessage());
+            Logger.getLogger(AnggotaController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

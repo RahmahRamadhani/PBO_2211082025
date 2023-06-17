@@ -13,15 +13,16 @@ public class Anggota {
     private String namaanggota;
     private String alamat;
     private String jeniskelamin;
+    
+    public Anggota(){
+        
+    }
 
     public Anggota(String kodeanggota, String namaanggota, String alamat, String jeniskelamin) {
         this.kodeanggota = kodeanggota;
         this.namaanggota = namaanggota;
         this.alamat = alamat;
         this.jeniskelamin = jeniskelamin;
-    }
-
-    public Anggota() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
