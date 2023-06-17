@@ -31,7 +31,7 @@ public class AnggotaDaoImpl implements AnggotaDao {
     }
     
     public void update(Anggota anggota) throws Exception{
-        String sql = "UPDATE SET namaanggota = ? , alamat = ? , jeniskelamin = ? "
+        String sql = "UPDATE anggota SET namaanggota = ? , alamat = ? , jeniskelamin = ? "
                 +"WHERE kodeanggota = ? ";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, anggota.getNamaanggota());
