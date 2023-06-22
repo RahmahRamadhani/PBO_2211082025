@@ -10,7 +10,6 @@ import Rahmah.dao.*;
 import Rahmah.db.DbHelper;
 import Rahmah.view.*;
 import java.sql.Connection;
-
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import java.util.*;
@@ -40,7 +39,7 @@ public class BukuController {
         view.getTxtKodeBuku().setText("");
         view.getTxtJudulBuku().setText("");
         view.getTxtPengarang().setText("");
-        view.getTxtPenerbit().setText("");
+        view.gextPetTnerbit().setText("");
     }
     
     public void tampil(){
@@ -83,8 +82,8 @@ public class BukuController {
             String kodeBuku = view.getTabelBuku()
                     .getValueAt(view.getTabelBuku().getSelectedRow(), 0).toString();
             buku = dao.getBuku(kodeBuku);
-            view.getTxtKodeBuku().setText(buku.getKodeBuku());
-            view.getTxtJudulBuku().setText(buku.getJudulBuk());
+            view.getTxtKodebuku().setText(buku.getKodebuku());
+            view.getTxtJudulbuku().setText(buku.getJudulbuku());
             view.getTxtPengarang().setText(buku.getPengarang());
             view.getTxtPenerbit().setText(buku.getPenerbit());
         } catch (Exception ex) {
