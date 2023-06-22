@@ -56,6 +56,4 @@ public class Buku {
     public void setPenerbit(String penerbit) {
         this.penerbit = penerbit;
     }
-    
-    
 }
