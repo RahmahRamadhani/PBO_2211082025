@@ -63,22 +63,67 @@ public class FormPengembalian extends javax.swing.JFrame {
         jLabel6.setText("Denda");
 
         cboKodeAnggota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboKodeAnggota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboKodeAnggotaActionPerformed(evt);
+            }
+        });
 
         cboKodeBuku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboKodeBuku.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cboKodeBukuActionPerformed(evt);
+            }
+        });
 
         txtTglpinjam.setText("jTextField1");
+        txtTglpinjam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTglpinjamActionPerformed(evt);
+            }
+        });
 
         txtTglkembali.setText("jTextField2");
+        txtTglkembali.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTglkembaliActionPerformed(evt);
+            }
+        });
 
         txtTerlambat.setText("jTextField3");
+        txtTerlambat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTerlambatActionPerformed(evt);
+            }
+        });
 
         txtDenda.setText("jTextField4");
+        txtDenda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDendaActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -99,6 +144,11 @@ public class FormPengembalian extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         btnKembalikan.setText("Kembalikan");
+        btnKembalikan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnKembalikanActionPerformed(evt);
+            }
+        });
 
         txtCari.setText("jTextField1");
         txtCari.addActionListener(new java.awt.event.ActionListener() {
@@ -110,6 +160,11 @@ public class FormPengembalian extends javax.swing.JFrame {
         btnCari.setText("Cari");
 
         cbopilih.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cbopilih.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbopilihActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -207,6 +262,50 @@ public class FormPengembalian extends javax.swing.JFrame {
     private void txtCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCariActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCariActionPerformed
+
+    private void cboKodeAnggotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboKodeAnggotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboKodeAnggotaActionPerformed
+
+    private void cboKodeBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboKodeBukuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cboKodeBukuActionPerformed
+
+    private void txtTglpinjamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTglpinjamActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTglpinjamActionPerformed
+
+    private void txtTglkembaliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTglkembaliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTglkembaliActionPerformed
+
+    private void txtTerlambatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTerlambatActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTerlambatActionPerformed
+
+    private void txtDendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDendaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDendaActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void cbopilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbopilihActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbopilihActionPerformed
+
+    private void btnKembalikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembalikanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnKembalikanActionPerformed
 
     /**
      * @param args the command line arguments
