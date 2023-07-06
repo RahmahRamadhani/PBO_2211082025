@@ -16,6 +16,7 @@ import javax.swing.JTextField;
  * @author LABP1KOMP
  */
 public class FormPeminjaman extends javax.swing.JFrame {
+
     PeminjamanController controller;
 
     /**
@@ -63,8 +64,6 @@ public class FormPeminjaman extends javax.swing.JFrame {
     public JTextField getTxtTglPinjam() {
         return txtTglpinjam;
     }
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
