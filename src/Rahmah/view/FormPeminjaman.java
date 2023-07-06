@@ -5,46 +5,63 @@
  */
 package Rahmah.view;
 
+import Rahmah.controller.PeminjamanController;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import Rahmah.controller.BukuController;
 
 /**
  *
  * @author LABP1KOMP
  */
-public class FormBuku extends javax.swing.JFrame {
-    BukuController controller;
+public class FormPeminjaman extends javax.swing.JFrame {
+    PeminjamanController controller;
 
     /**
-     * Creates new form FormBuku
+     * Creates new form FormPeminjaman
      */
-    
-    public FormBuku() {
+    public FormPeminjaman() {
         initComponents();
-        controller = new BukuController(this);
+        controller = new PeminjamanController(this);
         controller.clearForm();
         controller.tampil();
     }
 
-    public JTable getTabelBuku() {
-        return TabelBuku;
+    public JButton getBtnCncel() {
+        return btnCncel;
     }
 
-    public JTextField getTxtJudulBuku() {
-        return txtJudulBuku;
+    public JButton getBtnDelete() {
+        return btnDelete;
     }
 
-    public JTextField getTxtKodeBuku() {
-        return txtKodeBuku;
+    public JButton getBtnInsert() {
+        return btnInsert;
     }
 
-    public JTextField getTxtPenerbit() {
-        return txtPenerbit;
+    public JButton getBtnUpdate() {
+        return btnUpdate;
     }
 
-    public JTextField getTxtPengarang() {
-        return txtPengarang;
+    public JComboBox<String> getCboKodeAnggota() {
+        return cboKodeAnggota;
+    }
+
+    public JComboBox<String> getCboKodeBuku() {
+        return cboKodeBuku;
+    }
+
+    public JTable getTblPeminjaman() {
+        return tblPeminjaman;
+    }
+
+    public JTextField getTxtTglKembali() {
+        return txtTglkembali;
+    }
+
+    public JTextField getTxtTglPinjam() {
+        return txtTglpinjam;
     }
     
     
@@ -58,53 +75,34 @@ public class FormBuku extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtKodeBuku = new javax.swing.JTextField();
-        txtJudulBuku = new javax.swing.JTextField();
-        txtPengarang = new javax.swing.JTextField();
-        txtPenerbit = new javax.swing.JTextField();
+        txtTglpinjam = new javax.swing.JTextField();
+        txtTglkembali = new javax.swing.JTextField();
         btnInsert = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        btnCancel = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        TabelBuku = new javax.swing.JTable();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        btnCncel = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblPeminjaman = new javax.swing.JTable();
+        cboKodeAnggota = new javax.swing.JComboBox<>();
+        cboKodeBuku = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Kode Buku");
+        jLabel1.setText("Kode Anggota");
 
-        jLabel2.setText("Judul Buku");
+        jLabel2.setText("Kode Buku");
 
-        jLabel3.setText("Pengarang");
+        jLabel3.setText("Tanggal Pinjam");
 
-        jLabel4.setText("Penerbit");
+        jLabel4.setText("Tanggal Kembali");
 
-        txtKodeBuku.setText("jTextField1");
+        txtTglpinjam.setText("jTextField3");
 
-        txtJudulBuku.setText("jTextField2");
-
-        txtPengarang.setText("jTextField3");
-
-        txtPenerbit.setText("jTextField4");
+        txtTglkembali.setText("jTextField4");
 
         btnInsert.setText("Insert");
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
@@ -127,97 +125,103 @@ public class FormBuku extends javax.swing.JFrame {
             }
         });
 
-        btnCancel.setText("Cancel");
-        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+        btnCncel.setText("Cancel");
+        btnCncel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCancelActionPerformed(evt);
+                btnCncelActionPerformed(evt);
             }
         });
 
-        TabelBuku.setModel(new javax.swing.table.DefaultTableModel(
+        tblPeminjaman.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Kode Buku", "Judul Buku", "Pengarang", "Penerbit"
+                "Kode Anggota", "Kode Buku", "Tanggal Pinjam", "Tanggal Kembali"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        TabelBuku.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblPeminjaman.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                TabelBukuMouseClicked(evt);
+                tblPeminjamanMouseClicked(evt);
             }
         });
-        jScrollPane2.setViewportView(TabelBuku);
+        jScrollPane1.setViewportView(tblPeminjaman);
+
+        cboKodeAnggota.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cboKodeBuku.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(42, 42, 42)
-                        .addComponent(txtKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(42, 42, 42)
-                        .addComponent(txtJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
                             .addComponent(jLabel3)
                             .addComponent(jLabel4))
-                        .addGap(42, 42, 42)
+                        .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPenerbit, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
-                            .addComponent(txtPengarang)))
+                            .addComponent(txtTglpinjam, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(txtTglkembali)
+                            .addComponent(cboKodeBuku, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cboKodeAnggota, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnInsert)
-                        .addGap(35, 35, 35)
-                        .addComponent(btnUpdate)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnDelete)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnCancel))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                        .addGap(51, 51, 51)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 506, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnInsert)
+                                .addGap(54, 54, 54)
+                                .addComponent(btnUpdate)
+                                .addGap(60, 60, 60)
+                                .addComponent(btnDelete)
+                                .addGap(63, 63, 63)
+                                .addComponent(btnCncel)))))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboKodeAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtJudulBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboKodeBuku, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtPengarang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTglpinjam, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtPenerbit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtTglkembali, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnInsert)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
-                    .addComponent(btnCancel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCncel))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(207, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,15 +248,15 @@ public class FormBuku extends javax.swing.JFrame {
         controller.tampil();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+    private void btnCncelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCncelActionPerformed
         // TODO add your handling code here:
         controller.clearForm();
-    }//GEN-LAST:event_btnCancelActionPerformed
+    }//GEN-LAST:event_btnCncelActionPerformed
 
-    private void TabelBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelBukuMouseClicked
+    private void tblPeminjamanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPeminjamanMouseClicked
         // TODO add your handling code here:
         controller.tabelKlik();
-    }//GEN-LAST:event_TabelBukuMouseClicked
+    }//GEN-LAST:event_tblPeminjamanMouseClicked
 
     /**
      * @param args the command line arguments
@@ -263,34 +267,46 @@ public class FormBuku extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(FormPeminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(FormPeminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(FormPeminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(FormPeminjaman.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FormBuku().setVisible(true);
+                new FormPeminjaman().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable TabelBuku;
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCncel;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cboKodeAnggota;
+    private javax.swing.JComboBox<String> cboKodeBuku;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtJudulBuku;
-    private javax.swing.JTextField txtKodeBuku;
-    private javax.swing.JTextField txtPenerbit;
-    private javax.swing.JTextField txtPengarang;
+    private javax.swing.JTable tblPeminjaman;
+    private javax.swing.JTextField txtTglkembali;
+    private javax.swing.JTextField txtTglpinjam;
     // End of variables declaration//GEN-END:variables
-
-   
 }

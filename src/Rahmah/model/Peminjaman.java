@@ -10,29 +10,35 @@ package Rahmah.model;
  * @author LABP1KOMP
  */
 public class Peminjaman {
-    public String kodeanggota;
-    public String kodebuku;
-    public String tglpinjam;
-    public String tglkembali;
+    private Anggota agt;
+    private Buku bk;
+    private String tglpinjam;
+    private String tglkembali;
     
-    public void Peminjaman(){
+    public  Peminjaman(){
         
     }
-
-    public String getKodeanggota() {
-        return kodeanggota;
+    public Peminjaman(Anggota a,Buku b,String tglpinjam, String tglkembali){
+        this.agt = agt;
+        this.bk = bk;
+        this.tglpinjam = tglpinjam;
+        this.tglkembali = tglkembali;
     }
 
-    public void setKodeanggota(String kodeanggota) {
-        this.kodeanggota = kodeanggota;
+    public Anggota getAnggota() {
+        return agt;
     }
 
-    public String getKodebuku() {
-        return kodebuku;
+    public void setAnggota(Anggota agt) {
+        this.agt = agt;
     }
 
-    public void setKodebuku(String kodebuku) {
-        this.kodebuku = kodebuku;
+    public Buku getBuku() {
+        return bk;
+    }
+
+    public void setBuku(Buku bk) {
+        this.bk = bk;
     }
 
     public String getTglpinjam() {

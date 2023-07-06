@@ -51,7 +51,7 @@ public class BukuDaoImpl {
     }
 
     public Buku getJudulBuku(String kode) throws Exception {
-        String sql = "SELECT * FROM anggota WHERE kodeanggota = ?";
+        String sql = "SELECT * FROM buku WHERE kodeanggota = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
         ps.setString(1, kode);
         ResultSet rs = ps.executeQuery();
@@ -67,7 +67,7 @@ public class BukuDaoImpl {
     }
 
     public List<Buku> getAll() throws Exception {
-        String sql = "Select * FROM anggota";
+        String sql = "Select * FROM buku";
         PreparedStatement ps = connection.prepareStatement(sql);
         ResultSet rs = ps.executeQuery();
         Buku buku;
