@@ -5,6 +5,10 @@
  */
 package Rahmah.view;
 
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import Rahmah.controller.BukuController;
+
 /**
  *
  * @author LABP1KOMP
@@ -14,9 +18,35 @@ public class FormBuku extends javax.swing.JFrame {
     /**
      * Creates new form FormBuku
      */
+    BukuController controller;
     public FormBuku() {
         initComponents();
+        controller = new BukuController(this);
+        controller.clearForm();
+        controller.tampil();
     }
+
+    public JTable getTabelBuku() {
+        return TabelBuku;
+    }
+
+    public JTextField getTxtJudulBuku() {
+        return txtJudulBuku;
+    }
+
+    public JTextField getTxtKodeBuku() {
+        return txtKodeBuku;
+    }
+
+    public JTextField getTxtPenerbit() {
+        return txtPenerbit;
+    }
+
+    public JTextField getTxtPengarang() {
+        return txtPengarang;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -68,11 +98,6 @@ public class FormBuku extends javax.swing.JFrame {
         jLabel4.setText("Penerbit");
 
         txtKodeBuku.setText("jTextField1");
-        txtKodeBuku.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKodeBukuActionPerformed(evt);
-            }
-        });
 
         txtJudulBuku.setText("jTextField2");
 
@@ -81,24 +106,54 @@ public class FormBuku extends javax.swing.JFrame {
         txtPenerbit.setText("jTextField4");
 
         btnInsert.setText("Insert");
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertActionPerformed(evt);
+            }
+        });
 
         btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         btnCancel.setText("Cancel");
+        btnCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelActionPerformed(evt);
+            }
+        });
 
         TabelBuku.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Kode Buku", "Judul Buku", "Pengarang", "Penerbit"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        TabelBuku.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TabelBukuMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(TabelBuku);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -167,9 +222,36 @@ public class FormBuku extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtKodeBukuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKodeBukuActionPerformed
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtKodeBukuActionPerformed
+        controller.insert();
+        controller.clearForm();
+        controller.tampil();
+    }//GEN-LAST:event_btnInsertActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+        controller.update();
+        controller.clearForm();
+        controller.tampil();
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        controller.delete();
+        controller.clearForm();
+        controller.tampil();
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
+        // TODO add your handling code here:
+        controller.tampil();
+    }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void TabelBukuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TabelBukuMouseClicked
+        // TODO add your handling code here:
+        controller.tabelKlik();
+    }//GEN-LAST:event_TabelBukuMouseClicked
 
     /**
      * @param args the command line arguments
@@ -180,22 +262,6 @@ public class FormBuku extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            fortxtKodeBukung.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormBuku.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
         //</editor-fold>
 
         /* Create and display the form */
@@ -225,4 +291,5 @@ public class FormBuku extends javax.swing.JFrame {
     private javax.swing.JTextField txtPengarang;
     // End of variables declaration//GEN-END:variables
 
+   
 }

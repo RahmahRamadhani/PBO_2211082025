@@ -39,7 +39,7 @@ public class BukuController {
         view.getTxtKodeBuku().setText("");
         view.getTxtJudulBuku().setText("");
         view.getTxtPengarang().setText("");
-        view.gextPetTnerbit().setText("");
+        view.getTxtPenerbit().setText("");
     }
     
     public void tampil(){
@@ -65,8 +65,8 @@ public class BukuController {
     public void insert(){
         try {
             buku = new Buku();
-            buku.setKodeBuku(view.getTxtKodeBuku().getText());
-            buku.setJudulBuku(view.getTxtJudulBuku().getText());
+            buku.setKodebuku(view.getTxtKodeBuku().getText());
+            buku.setJudulbuku(view.getTxtJudulBuku().getText());
             buku.setPengarang(view.getTxtPengarang().getText());
             buku.setPenerbit(view.getTxtPenerbit().getText());
             dao.insert(buku);
@@ -82,8 +82,8 @@ public class BukuController {
             String kodeBuku = view.getTabelBuku()
                     .getValueAt(view.getTabelBuku().getSelectedRow(), 0).toString();
             buku = dao.getBuku(kodeBuku);
-            view.getTxtKodebuku().setText(buku.getKodebuku());
-            view.getTxtJudulbuku().setText(buku.getJudulbuku());
+            view.getTxtKodeBuku().setText(buku.getKodebuku());
+            view.getTxtJudulBuku().setText(buku.getJudulbuku());
             view.getTxtPengarang().setText(buku.getPengarang());
             view.getTxtPenerbit().setText(buku.getPenerbit());
         } catch (Exception ex) {
@@ -94,10 +94,10 @@ public class BukuController {
     public void update(){
         try {
             
-            buku.setKodeanggota(view.getTxtKodeBuku().getText());
-            buku.setNamaanggota(view.getTxtJudulBuku().getText());
-            buku.setAlamat(view.getTxtPengarang().getText());
-            buku.setAlamat(view.getTxtPenerbit().getText());
+            buku.setKodebuku(view.getTxtKodeBuku().getText());
+            buku.setJudulbuku(view.getTxtJudulBuku().getText());
+            buku.setPengarang(view.getTxtPengarang().getText());
+            buku.setPenerbit(view.getTxtPenerbit().getText());
             dao.update(buku);
             JOptionPane.showMessageDialog(view, "Update Data Ok");
         } catch (Exception ex) {
