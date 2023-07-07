@@ -21,7 +21,7 @@ public class BukuDaoImpl implements BukuDao {
         this.connection = connection;
     }
    
-    @Override
+    
     public void insert (Buku buku) throws Exception {
         String sql = "Insert into buku values(?,?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -33,7 +33,7 @@ public class BukuDaoImpl implements BukuDao {
         ps.close();
     }
     
-    @Override
+    
     public void update(Buku buku) throws Exception{
         String sql = "UPDATE anggota SET namaanggota = ? , alamat = ? , jeniskelamin = ? "
                 +"WHERE kodeanggota = ? ";
@@ -46,7 +46,7 @@ public class BukuDaoImpl implements BukuDao {
         ps.close();
     }
     
-    @Override
+    
     public void delete(Buku buku) throws Exception{
         String sql = "DELETE FROM anggota WHERE kodeanggota = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -54,7 +54,6 @@ public class BukuDaoImpl implements BukuDao {
         ps.executeUpdate();
     }
 
-    @Override
     public Buku getJudulBuku(String kode) throws Exception {
         String sql = "SELECT * FROM buku WHERE kodeanggota = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -87,5 +86,10 @@ public class BukuDaoImpl implements BukuDao {
             list.add(buku);
         }
         return list;
+    }
+
+    @Override
+    public Buku getBuku(String kodebuku) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

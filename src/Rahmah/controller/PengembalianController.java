@@ -66,12 +66,12 @@ public class PengembalianController {
    
    public void insert() {
         try {
-            kembali.setKodeAnggota(form.getCbokodeanggota().getSelectedItem().toString());
-            kembali.setKodebuku(form.getCbokodebuku().getSelectedItem().toString());
-            kembali.setTglpinjam(form.getTxttglpinjam().getText());
-            kembali.setTglkembali(form.getTxttgldikembalikan().getText());
-            kembali.setTerlambat(Integer.parseInt(form.getTxtterlambat().getText()));
-            kembali.setDenda(Double.parseDouble(form.getTxtdenda().getText()));
+            kembali.setKodeAnggota(form.getCboKodeAnggota().getSelectedItem().toString());
+            kembali.setKodebuku(form.getCboKodeBuku().getSelectedItem().toString());
+            kembali.setTglpinjam(form.getTxtTglpinjam().getText());
+            kembali.setTglkembali(form.getTxtTglkembali().getText());
+            kembali.setTerlambat(Integer.parseInt(form.getTxtTerlambat().getText()));
+            kembali.setDenda(Double.parseDouble(form.getTxtDenda().getText()));
             pengembalianDao.insert(kembali);
             JOptionPane.showMessageDialog(form, "Berhasil Kembalikan Buku.");
         } catch (Exception e) {
@@ -81,12 +81,12 @@ public class PengembalianController {
     
     public void update() {  
         try {
-            kembali.setKodeAnggota(form.getCbokodeanggota().getSelectedItem().toString());
-            kembali.setKodebuku(form.getCbokodebuku().getSelectedItem().toString());
-            kembali.setTglpinjam(form.getTxttglpinjam().getText());
-            kembali.setTglkembali(form.getTxttgldikembalikan().getText());
-            kembali.setTerlambat(Integer.parseInt(form.getTxtterlambat().getText()));
-            kembali.setDenda(Double.parseDouble(form.getTxtdenda().getText()));
+            kembali.setKodeAnggota(form.getCboKodeAnggota().getSelectedItem().toString());
+            kembali.setKodebuku(form.getCboKodeBuku().getSelectedItem().toString());
+            kembali.setTglpinjam(form.getTxtTglpinjam().getText());
+            kembali.setTglkembali(form.getTxtTglkembali().getText());
+            kembali.setTerlambat(Integer.parseInt(form.getTxtTerlambat().getText()));
+            kembali.setDenda(Double.parseDouble(form.getTxtDenda().getText()));
             pengembalianDao.update(kembali);
             JOptionPane.showMessageDialog(form, "Berhasil update Buku.");
         } catch (Exception e) {
@@ -95,11 +95,11 @@ public class PengembalianController {
     }
      public void delete() {
         try {
-            kembali.setKodeAnggota(form.getTblpengembalian().getValueAt(form.getTblpengembalian().getSelectedRow(), 0)
+            kembali.setKodeAnggota(form.getTblPengembalian().getValueAt(form.getTblPengembalian().getSelectedRow(), 0)
                     .toString());
-            kembali.setKodebuku(form.getTblpengembalian().getValueAt(form.getTblpengembalian().getSelectedRow(), 2)
+            kembali.setKodebuku(form.getTblPengembalian().getValueAt(form.getTblPengembalian().getSelectedRow(), 2)
                     .toString());
-            kembali.setTglpinjam(form.getTblpengembalian().getValueAt(form.getTblpengembalian().getSelectedRow(), 4)
+            kembali.setTglpinjam(form.getTblPengembalian().getValueAt(form.getTblPengembalian().getSelectedRow(), 4)
                     .toString());
             pengembalianDao.delete(kembali);
             JOptionPane.showMessageDialog(form, "Data pengembalian dihapus!", null, 2);
@@ -110,26 +110,26 @@ public class PengembalianController {
     
      public void get() {
         try {
-            form.getBtnkembalikan().setEnabled(true);
-            String tglPinjam = form.getTblpengembalian().getValueAt(form.getTblpengembalian().getSelectedRow(), 4)
+            form.getBtnKembalikan().setEnabled(true);
+            String tglPinjam = form.getTblPengembalian().getValueAt(form.getTblPengembalian().getSelectedRow(), 4)
                     .toString();
-            String tglkembali = form.getTblpengembalian().getValueAt(form.getTblpengembalian().getSelectedRow(), 5)
+            String tglkembali = form.getTblPengembalian().getValueAt(form.getTblPengembalian().getSelectedRow(), 5)
                     .toString();
-            form.getCbokodeanggota()
-                    .setSelectedItem(form.getTblpengembalian().getValueAt(form.getTblpengembalian().getSelectedRow(), 0)
+            form.getCboKodeAnggota()
+                    .setSelectedItem(form.getTblPengembalian().getValueAt(form.getTblPengembalian().getSelectedRow(), 0)
                             .toString());
-            form.getCbokodebuku()
-                    .setSelectedItem(form.getTblpengembalian().getValueAt(form.getTblpengembalian().getSelectedRow(), 2)
+            form.getCboKodeBuku()
+                    .setSelectedItem(form.getTblPengembalian().getValueAt(form.getTblPengembalian().getSelectedRow(), 2)
                             .toString());
-            form.getTxttglpinjam()
+            form.getTxtTglpinjam()
                     .setText(tglPinjam);
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             String tglDikembalikan = format.format(new java.util.Date());
-            form.getTxttgldikembalikan().setText(tglDikembalikan);
+            form.getTxtTglkembali().setText(tglDikembalikan);
             int terlambat = pengembalianDao.selisihtgl(tglDikembalikan, tglkembali);
             kembali.setTerlambat(terlambat);
-            form.getTxtterlambat().setText("" + terlambat);
-            form.getTxtdenda().setText((String.valueOf(kembali.getDenda())));
+            form.getTxtTerlambat().setText("" + terlambat);
+            form.getTxtDenda().setText((String.valueOf(kembali.getDenda())));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(form, e, null, 0);
         }
@@ -137,7 +137,7 @@ public class PengembalianController {
     
      public void tampil() {
         try {
-            DefaultTableModel tableModel = (DefaultTableModel) form.getTblpengembalian().getModel();
+            DefaultTableModel tableModel = (DefaultTableModel) form.getTblPengembalian().getModel();
             tableModel.setRowCount(0);
             List<Pengembalian> List = pengembalianDao.getAll();
             for (Pengembalian kembali : List) {
@@ -163,8 +163,8 @@ public class PengembalianController {
     public void Cari() {
         try {
             String kode = form.getCbopilih().getSelectedItem().toString();
-            String cari = form.getTxtcari().getText();
-            DefaultTableModel tableModel = (DefaultTableModel) form.getTblpengembalian().getModel();
+            String cari = form.getTxtCari().getText();
+            DefaultTableModel tableModel = (DefaultTableModel) form.getTblPengembalian().getModel();
             tableModel.setRowCount(0);
             if(kode == "KodeAnggota" ){
                 kode = "anggota.kodeAnggota";
@@ -205,16 +205,16 @@ public class PengembalianController {
     }
 
     public int tanggalDikembalikan() throws Exception {
-        String tglDikembalikan = form.getTxttgldikembalikan().getText();
-        String Tglkembali = form.getTblpengembalian().getValueAt(form.getTblpengembalian().getSelectedRow(), 5)
+        String tglDikembalikan = form.getTxtTglkembali().getText();
+        String Tglkembali = form.getTblPengembalian().getValueAt(form.getTblPengembalian().getSelectedRow(), 5)
                 .toString();
         int terlambat = pengembalianDao.selisihtgl(tglDikembalikan, Tglkembali);
         if(terlambat <= 0){
             terlambat = 0;
         }
-        form.getTxtterlambat().setText("" + terlambat);
-        form.getTxttgldikembalikan().setText(tglDikembalikan);
-        form.getTxtdenda().setText((String.valueOf(terlambat * 2000)));
+        form.getTxtTerlambat().setText("" + terlambat);
+        form.getTxtTglkembali().setText(tglDikembalikan);
+        form.getTxtDenda().setText((String.valueOf(terlambat * 2000)));
         return terlambat;
     }
 }
