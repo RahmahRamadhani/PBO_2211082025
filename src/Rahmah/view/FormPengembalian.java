@@ -145,6 +145,14 @@ public class FormPengembalian extends javax.swing.JFrame {
         });
 
         txtTglpinjam.setText("jTextField1");
+        txtTglpinjam.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtTglpinjamFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtTglpinjamFocusLost(evt);
+            }
+        });
         txtTglpinjam.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTglpinjamActionPerformed(evt);
@@ -155,6 +163,11 @@ public class FormPengembalian extends javax.swing.JFrame {
         txtTglkembali.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTglkembaliActionPerformed(evt);
+            }
+        });
+        txtTglkembali.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtTglkembaliKeyReleased(evt);
             }
         });
 
@@ -209,6 +222,11 @@ public class FormPengembalian extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblPengembalian.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblPengembalianMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblPengembalian);
 
         btnKembalikan.setText("Kembalikan");
@@ -226,6 +244,19 @@ public class FormPengembalian extends javax.swing.JFrame {
         });
 
         btnCari.setText("Cari");
+        btnCari.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                btnCariFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                btnCariFocusLost(evt);
+            }
+        });
+        btnCari.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCariActionPerformed(evt);
+            }
+        });
 
         cbopilih.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbopilih.addActionListener(new java.awt.event.ActionListener() {
@@ -357,14 +388,22 @@ public class FormPengembalian extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
+        controller.update();
+        controller.clearForm();
+        controller.tampil();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:;
+        controller.clearForm();
+        controller.tampil();
     }//GEN-LAST:event_btnCancelActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        controller.delete();
+        controller.clearForm();
+        controller.tampil();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void cbopilihActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbopilihActionPerformed
@@ -373,7 +412,57 @@ public class FormPengembalian extends javax.swing.JFrame {
 
     private void btnKembalikanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnKembalikanActionPerformed
         // TODO add your handling code here:
+        controller.insert();
+        controller.clearForm();
+        controller.tampil();
     }//GEN-LAST:event_btnKembalikanActionPerformed
+
+    private void tblPengembalianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblPengembalianMouseClicked
+        // TODO add your handling code here:
+        controller.get();
+    }//GEN-LAST:event_tblPengembalianMouseClicked
+
+    private void btnCariFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnCariFocusGained
+        // TODO add your handling code here:
+        if(txtCari.getText().equals("Masukkkan Kode Anggota")){
+            txtCari.setText("");
+        }
+    }//GEN-LAST:event_btnCariFocusGained
+
+    private void btnCariFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_btnCariFocusLost
+        // TODO add your handling code here:
+        if(txtCari.getText().equals("")){
+            txtCari.setText("Masukkkan Kode Anggota");
+        }
+    }//GEN-LAST:event_btnCariFocusLost
+
+    private void txtTglkembaliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTglkembaliKeyReleased
+        try {
+            // TODO add your handling code here:
+            controller.tanggalDikembalikan();
+        } catch (Exception ex) {
+            Logger.getLogger(FormPengembalian.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_txtTglkembaliKeyReleased
+
+    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
+        // TODO add your handling code here:
+        controller.Cari();
+    }//GEN-LAST:event_btnCariActionPerformed
+
+    private void txtTglpinjamFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTglpinjamFocusGained
+        // TODO add your handling code here:
+        if(txtTglpinjam.getText().equals("yyyy-mm-dd")){
+            txtTglpinjam.setText("");
+        }
+    }//GEN-LAST:event_txtTglpinjamFocusGained
+
+    private void txtTglpinjamFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtTglpinjamFocusLost
+        // TODO add your handling code here:
+        if(txtTglpinjam.getText().equals("")){
+            txtTglpinjam.setText("yyyy-mm-dd");
+        }
+    }//GEN-LAST:event_txtTglpinjamFocusLost
 
     /**
      * @param args the command line arguments

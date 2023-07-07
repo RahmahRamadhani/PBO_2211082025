@@ -20,7 +20,8 @@ public class BukuDaoImpl implements BukuDao {
     public BukuDaoImpl(Connection connection){
         this.connection = connection;
     }
-    
+   
+    @Override
     public void insert (Buku buku) throws Exception {
         String sql = "Insert into buku values(?,?,?,?)";
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -31,6 +32,8 @@ public class BukuDaoImpl implements BukuDao {
         ps.executeUpdate();
         ps.close();
     }
+    
+    @Override
     public void update(Buku buku) throws Exception{
         String sql = "UPDATE anggota SET namaanggota = ? , alamat = ? , jeniskelamin = ? "
                 +"WHERE kodeanggota = ? ";
@@ -43,6 +46,7 @@ public class BukuDaoImpl implements BukuDao {
         ps.close();
     }
     
+    @Override
     public void delete(Buku buku) throws Exception{
         String sql = "DELETE FROM anggota WHERE kodeanggota = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -50,6 +54,7 @@ public class BukuDaoImpl implements BukuDao {
         ps.executeUpdate();
     }
 
+    @Override
     public Buku getJudulBuku(String kode) throws Exception {
         String sql = "SELECT * FROM buku WHERE kodeanggota = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
@@ -66,6 +71,7 @@ public class BukuDaoImpl implements BukuDao {
         return buku;
     }
 
+ 
     public List<Buku> getAll() throws Exception {
         String sql = "Select * FROM buku";
         PreparedStatement ps = connection.prepareStatement(sql);

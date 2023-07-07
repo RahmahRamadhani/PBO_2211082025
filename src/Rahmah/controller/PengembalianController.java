@@ -39,26 +39,26 @@ public class PengembalianController {
    public void clearForm() {
         
        try {
-           form.getBtnkembalikan().setEnabled(false);
+           form.getBtnKembalikan().setEnabled(false);
            List<Anggota> alist = agtDao.getAll();
-           form.getCbokodeanggota().removeAllItems();
+           form.getCboKodeAnggota().removeAllItems();
            for(Anggota anggota : alist){
-               form.getCbokodeanggota().addItem(anggota.getKodeanggota());
+               form.getCboKodeAnggota().addItem(anggota.getKodeanggota());
            }
-           form.getCbokodeanggota().setSelectedIndex(0);
+           form.getCboKodeAnggota().setSelectedIndex(0);
            
            List<Buku> blist = bkDao.getAll();
-           form.getCbokodebuku().removeAllItems();
+           form.getCboKodeBuku().removeAllItems();
            for(Buku buku  : blist){
-               form.getCbokodebuku().addItem(buku.getKodebuku());
+               form.getCboKodeBuku().addItem(buku.getKodebuku());
            }
-           form.getCbokodeanggota().setSelectedIndex(0);
+           form.getCboKodeAnggota().setSelectedIndex(0);
 
-           form.getTxttglpinjam().setText("");
-           form.getTxttgldikembalikan().setText("");
-           form.getTxtcari().setText("");
-           form.getTxtterlambat().setText("");
-           form.getTxtdenda().setText("");
+           form.getTxtTglpinjam().setText("");
+           form.getTxtTglkembali().setText("");
+           form.getTxtCari().setText("");
+           form.getTxtTerlambat().setText("");
+           form.getTxtDenda().setText("");
        } catch (Exception ex) {
            Logger.getLogger(PengembalianController.class.getName()).log(Level.SEVERE, null, ex);
        }
