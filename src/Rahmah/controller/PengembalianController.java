@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.util.List;
 import Rahmah.dao.*;
 import Rahmah.model.*;
-import Rahmah.db.dbHelper;
+import Rahmah.db.DbHelper;
 import Rahmah.view.FormPengembalian;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -29,14 +29,14 @@ public class PengembalianController {
    
    public PengembalianController (FormPengembalian view) throws Exception {
         this.form = form;
-        connection = dbHelper.getConnection();
+        connection = DbHelper.getConnection();
         agtDao = new AnggotaDaoImpl(connection);
         bkDao = new BukuDaoImpl(connection);
         pengembalianDao = new PengembalianDaoImpl(connection);
         kembali = new Pengembalian();
     }
    
-   public void bersih() {
+   public void clearForm() {
         
        try {
            form.getBtnkembalikan().setEnabled(false);

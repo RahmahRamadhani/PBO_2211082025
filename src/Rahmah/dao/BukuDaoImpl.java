@@ -14,15 +14,11 @@ import Rahmah.model.Buku;
  *
  * @author LABP1KOMP
  */
-public class BukuDaoImpl {
+public class BukuDaoImpl implements BukuDao {
     private Connection connection;
     
     public BukuDaoImpl(Connection connection){
         this.connection = connection;
-    }
-
-    public BukuDaoImpl(Connection connection) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public void insert (Buku buku) throws Exception {

@@ -3,19 +3,87 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Rahmah.view;
-
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import Rahmah.controller.PengembalianController;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 /**
  *
  * @author LAB-JARINGAN01
  */
 public class FormPengembalian extends javax.swing.JFrame {
+    PengembalianController controller;
 
     /**
      * Creates new form FormPengembalian
      */
     public FormPengembalian() {
         initComponents();
+        controller = new PengembalianController(this);
+        controller.clearForm();
+        controller.tampil();
     }
+
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public JButton getBtnCari() {
+        return btnCari;
+    }
+
+    public JButton getBtnDelete() {
+        return btnDelete;
+    }
+
+    public JButton getBtnKembalikan() {
+        return btnKembalikan;
+    }
+
+    public JButton getBtnUpdate() {
+        return btnUpdate;
+    }
+
+    public JComboBox<String> getCboKodeAnggota() {
+        return cboKodeAnggota;
+    }
+
+    public JComboBox<String> getCboKodeBuku() {
+        return cboKodeBuku;
+    }
+
+    public JComboBox<String> getCbopilih() {
+        return cbopilih;
+    }
+
+    public JTable getTblPengembalian() {
+        return tblPengembalian;
+    }
+
+    public JTextField getTxtCari() {
+        return txtCari;
+    }
+
+    public JTextField getTxtDenda() {
+        return txtDenda;
+    }
+
+    public JTextField getTxtTerlambat() {
+        return txtTerlambat;
+    }
+
+    public JTextField getTxtTglkembali() {
+        return txtTglkembali;
+    }
+
+    public JTextField getTxtTglpinjam() {
+        return txtTglpinjam;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,7 +110,7 @@ public class FormPengembalian extends javax.swing.JFrame {
         btnCancel = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblPengembalian = new javax.swing.JTable();
         btnKembalikan = new javax.swing.JButton();
         txtCari = new javax.swing.JTextField();
         btnCari = new javax.swing.JButton();
@@ -125,7 +193,7 @@ public class FormPengembalian extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblPengembalian.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -141,7 +209,7 @@ public class FormPengembalian extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblPengembalian);
 
         btnKembalikan.setText("Kembalikan");
         btnKembalikan.addActionListener(new java.awt.event.ActionListener() {
@@ -358,7 +426,7 @@ public class FormPengembalian extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblPengembalian;
     private javax.swing.JTextField txtCari;
     private javax.swing.JTextField txtDenda;
     private javax.swing.JTextField txtTerlambat;
