@@ -30,7 +30,7 @@ public class PeminjamanController {
             this.form = form;
             pinjamDao = new PeminjamanDaoImpl(DbHelper.getConnection());
             agtDao = new AnggotaDaoImpl(DbHelper.getConnection());
-            bkDao = new BukuController (DbHelper.getConnection());
+            bkDao = new BukuDaoImpl (DbHelper.getConnection());
         } catch (SQLException ex) {
             Logger.getLogger(PeminjamanController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -106,23 +106,7 @@ public class PeminjamanController {
             Logger.getLogger(PeminjamanController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void tabelKlik() {
-        try {
-            String Kodebuku = form.getTblPeminjaman().getValueAt(form.getTblPeminjaman().getSelectedRow(), 1).toString();
-            String kodeAnggota = form.getTblPeminjaman().getValueAt(form.getTblPeminjaman().getSelectedRow(), 0).toString();
-            String Tglpinjam = form.getTblPeminjaman().getValueAt(form.getTblPeminjaman().getSelectedRow(), 2).toString();
-            pinjam = pinjamDao.getPeminjaman(kodeAnggota, Kodebuku, Tglpinjam);
-            Anggota anggota = agtDao.getAnggota(pinjam.getKodeAnggota());
-            Buku buku = bkDao.getBuku(pinjam.getKodebuku());
-            form.getTxtTglKembali().setText(pinjam.getTglkembali());
-            form.getCboKodeAnggota().setSelectedItem(pinjam.getKodeAnggota()+"-"+anggota.getNamaanggota());
-            form.getCboKodeBuku().setSelectedItem(pinjam.getKodebuku()+"-"+buku.getJudulbuku()); 
-            form.getTxtTglPinjam().setText(pinjam.getTglpinjam());
-        } catch (Exception ex) {
-            Logger.getLogger(PeminjamanController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+  
     
     public void getPeminjaman(){
         try {
