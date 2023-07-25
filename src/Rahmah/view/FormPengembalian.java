@@ -5,7 +5,9 @@
 package Rahmah.view;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-import Rahmah.controller.PengembalianController;
+import Rahmah.controller.*;
+import Rahmah.dao.*;
+import Rahmah.model.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JButton;
@@ -352,7 +354,7 @@ public class FormPengembalian extends javax.swing.JFrame {
                     .addComponent(btnCancel)
                     .addComponent(btnDelete)
                     .addComponent(btnKembalikan))
-                .addContainerGap(149, Short.MAX_VALUE))
+                .addContainerGap(258, Short.MAX_VALUE))
         );
 
         pack();
